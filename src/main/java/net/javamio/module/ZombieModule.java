@@ -91,6 +91,8 @@ public class ZombieModule {
                     if (owner.equals(player.getUniqueId().toString())) {
                         zombie.remove();
                         MessageUtils.getString("messages.totem-zombie-despawn.success").replace("%player%", player.getName());
+                        if (!(player.isOnline())) return;
+                        player.sendRichMessage(MessageUtils.getString("messages.totem-zombie-despawn.success"));
                         return;
                     }
                 }

@@ -1,7 +1,7 @@
 package net.javamio;
 
 import net.javamio.command.TrainingCommand;
-import net.javamio.listeners.PlayerDeathListener;
+import net.javamio.listeners.DespawnListeners;
 import net.javamio.module.ZombieModule;
 import net.javamio.utility.MessageUtils;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -16,7 +16,7 @@ public class Training extends JavaPlugin {
         saveDefaultConfig();
         MessageUtils.logger("<gradient:#7808FB:#ADE3FD>Fork by Insolventer</gradient>");
         new TrainingCommand("training");
-        new PlayerDeathListener();
+        new DespawnListeners();
     }
 
     @Override
