@@ -14,28 +14,28 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class TrainingCommand implements CommandExecutor, TabCompleter {
+    public TrainingCommand(String name) {
+        Objects.requireNonNull(Training.getInstance().getCommand(name)).setExecutor(this);
+        Objects.requireNonNull(Training.getInstance().getCommand(name)).setTabCompleter(this);
+    }
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (!(sender instanceof Player player)) {
-            if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
-                Training.getInstance().reloadConfig();
-                sender.sendMessage(MessageUtils.getMessage("messages.reload.success"));
-                return true;
-            }
-            sender.sendMessage(MessageUtils.getMessage("messages.error.player-only"));
+            sender.sendRichMessage(MessageUtils.getString("messages.error.player-only"));
             return true;
         }
 
         if (args.length == 0) {
-            player.sendMessage(MessageUtils.getMessage("messages.error.no-args"));
+            player.sendRichMessage(MessageUtils.getString("messages.error.invalid-command"));
             return false;
         }
 
         if (!player.hasPermission("training.use")) {
-            player.sendMessage(MessageUtils.getMessage("messages.error.no-permission"));
+            player.sendRichMessage(MessageUtils.getString("messages.error.no-permission"));
             return false;
         }
 
@@ -51,14 +51,14 @@ public class TrainingCommand implements CommandExecutor, TabCompleter {
             case "reload" -> {
                 if (player.hasPermission("training.reload")) {
                     Training.getInstance().reloadConfig();
-                    player.sendMessage(MessageUtils.getMessage("messages.reload.success"));
+                    player.sendRichMessage(MessageUtils.getString("messages.reload.success"));
                 } else {
-                    player.sendMessage(MessageUtils.getMessage("messages.error.no-permission"));
+                    player.sendRichMessage(MessageUtils.getString("messages.error.no-permission"));
                 }
                 return true;
             }
             default -> {
-                player.sendMessage(MessageUtils.getMessage("messages.error.invalid-command"));
+                player.sendRichMessage(MessageUtils.getString("messages.error.invalid-command"));
                 return false;
             }
         }

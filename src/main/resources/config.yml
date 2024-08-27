@@ -1,15 +1,75 @@
 messages:
   totem-zombie-spawn:
-    success: 'TotemZombie spawned!'
-    fail: 'TotemZombie already spawned!'
+    success: '<green>TotemZombie spawned!</green>'
+    fail: '<red>TotemZombie already spawned!</red>'
   totem-zombie-despawn:
-    success: 'TotemZombie despawned!'
-    fail: 'TotemZombie not spawned!'
+    success: '<green>TotemZombie despawned!</green>'
+    fail: '<red>TotemZombie not spawned!</red>'
   reload:
-    success: 'TotemZombie reloaded!'
+    success: '<yellow>TotemZombie reloaded!</yellow>'
   error:
-    player-only: "This command can only be executed by a player!"
-    no-args: "Please provide an argument!"
-    no-permission: "You don't have permission to execute this command!"
+    player-only: '<red>This command can only be executed by a player!</red>'
+    no-args: '<red>Please provide an argument!</red>'
+    no-permission: '<red>You don''t have permission to execute this command!</red>'
 zombie-totem:
-  display-name: '&aTotemZombie'
+  amount: 64
+  display-name: '<gradient:#7808FB:#ADE3FD>%player% Training Zombie</gradient>' # Auto replaces %player% with [name´s]
+
+zombie:
+  effect:
+    type: STRENGTH
+    duration: 200
+    amplifier: 1
+  # --------------------------------------------------
+  # Items
+  # --------------------------------------------------
+
+
+items:
+  sword:
+    slot: 7 # Slot of the Item
+    material: DIAMOND_SWORD # Material of the Item
+    unbreakable: true # Is the item unbreakable? true/false
+    enchantments: # Enchantments of the Item only enchantments that are valid for the item
+      DAMAGE_ALL: 5
+      FIRE_ASPECT: 2
+    flags:
+      - HIDE_ENCHANTS # Flags of the Item see https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/ItemFlag.html
+      - HIDE_ATTRIBUTES
+      - HIDE_UNBREAKABLE
+  helmet:
+    material: DIAMOND_HELMET
+    unbreakable: true
+    enchantments:
+      PROTECTION_ENVIRONMENTAL: 5
+      THORNS: 3
+    flags:
+      - HIDE_ENCHANTS
+      - HIDE_ATTRIBUTES
+  chestplate:
+    material: DIAMOND_CHESTPLATE
+    unbreakable: true
+    enchantments:
+      PROTECTION_ENVIRONMENTAL: 5
+      THORNS: 3
+    flags:
+      - HIDE_ENCHANTS
+      - HIDE_ATTRIBUTES
+  leggings:
+    material: DIAMOND_LEGGINGS
+    unbreakable: true
+    enchantments:
+      PROTECTION_ENVIRONMENTAL: 5
+      THORNS: 3
+    flags:
+      - HIDE_ENCHANTS
+      - HIDE_ATTRIBUTES
+  boots:
+    material: DIAMOND_BOOTS
+    unbreakable: true
+    enchantments:
+      PROTECTION_ENVIRONMENTAL: 5
+      THORNS: 3
+    flags:
+      - HIDE_ENCHANTS
+      - HIDE_ATTRIBUTES

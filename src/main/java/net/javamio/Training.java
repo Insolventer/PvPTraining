@@ -1,6 +1,9 @@
 package net.javamio;
 
 import net.javamio.command.TrainingCommand;
+import net.javamio.listeners.PlayerDeathListener;
+import net.javamio.module.ZombieModule;
+import net.javamio.utility.MessageUtils;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Training extends JavaPlugin {
@@ -11,8 +14,14 @@ public class Training extends JavaPlugin {
     public void onEnable() {
         instance = this;
         saveDefaultConfig();
-        getCommand("training").setExecutor(new TrainingCommand());
-        getCommand("training").setTabCompleter(new TrainingCommand());
+        MessageUtils.logger("<gradient:#7808FB:#ADE3FD>Fork by Insolventer</gradient>");
+        new TrainingCommand("training");
+        new PlayerDeathListener();
+    }
+
+    @Override
+    public void onDisable() {
+        ZombieModule.despawnAllZombies();
     }
 
     public static Training getInstance() {

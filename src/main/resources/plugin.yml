@@ -2,7 +2,9 @@ name: Training
 version: 1.0
 api-version: 1.19
 main: net.javamio.Training
-author: JavaMio
+authors:
+  - JavaMio
+  - Insolventer
 website: https://github.com/MioArchive
 description: A plugin which spawns a zombie for PvP Practice
 
@@ -10,6 +12,4 @@ commands:
   training:
     description: Main command to spawn the Zombie
     usage: '/training'
-    permission: training.use
-    default: op
     aliases: [practice, train]
