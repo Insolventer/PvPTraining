@@ -1,4 +1,6 @@
 messages:
+  zombie:
+    spawn: "test"
   totem-zombie-spawn:
     success: '<green>TotemZombie spawned!</green>'
     fail: '<red>TotemZombie already spawned!</red>'
