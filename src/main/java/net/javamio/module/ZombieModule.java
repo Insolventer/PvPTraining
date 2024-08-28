@@ -23,6 +23,7 @@ public class ZombieModule {
 
 
     public static void spawnZombie(Player player) {
+        player.SendRichMessage(MessageUtils.getString("messages.zombie.spawn");
         final ItemStack weapon, helmet, chestplate, leggings, boots;
 
         ItemBuilder itemBuilder = new ItemBuilder();
